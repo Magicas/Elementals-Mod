@@ -1,0 +1,19 @@
+tile.Pillar.WhiteMarble.name=Marble Pillar
+tile.Pillar.BlackMarble.name=Burnt Marble Pillar
+
+tile.PillarCap.WhiteMarble.name=Marble Pillar Cap
+tile.PillarCap.BlackMarble.name=Burnt Marble Pillar Cap
+
+tile.PillarBase.WhiteMarble.name=Marble Pillar Base
+tile.PillarBase.BlackMarble.name=Burnt Marble Pillar Base
+
+tile.Brick_WhiteMarble.name=Marble Brick
+tile.Brick_BlackMarble.name=Burnt Marble Brick
+
+tile.Block_WhiteMarble.name=Marble
+tile.Block_BlackMarble.name=Burnt Marble
+
+tile.Stairs_WhiteMarble.name=Marble Stairs
+tile.Stairs_BlackMarble.name=Black Marble Stairs
+tile.Stairs_WhiteMarbleBrick.name=Marble Brick Stairs
+tile.Stairs_BlackMarbleBrick.name=Black Marble Brick Stairs
