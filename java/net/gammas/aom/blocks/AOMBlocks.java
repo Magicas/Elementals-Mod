@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class AOMBlocks
@@ -60,6 +61,15 @@ public class AOMBlocks
 	public static Block blockBlackMarbleBrick;
 	public static Block blockBlackMarbleStairs;
 	public static Block blockBlackMarbleBrickStairs;
+	
+	public static Block blockTinOre;
+	public static Block blockCopperOre;
+	public static Block blockPlatinumOre;
+	
+	public static Block blockForgeIdle;
+	public static Block blockForgeActive;
+	
+	public static final int blockForgeGuiId = 0;
 
 	public static void InitBlocks()
 	{
@@ -67,15 +77,16 @@ public class AOMBlocks
 		blockWhiteMarbleBrick = new BlockAOMStone(stoneMat).setBlockName("Brick_WhiteMarble").setCreativeTab(tabBlocks).setHardness(stone);
 		blockWhiteMarbleStairs = new BlockAOMStairs(stoneMat, blockWhiteMarble, 0).setBlockName("Stairs_WhiteMarble").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
 		blockWhiteMarbleBrickStairs = new BlockAOMStairs(stoneMat, blockWhiteMarbleBrick, 0).setBlockName("Stairs_WhiteMarbleBrick").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
-		
 		blockMarblePillars = new BlockAOMPillar().setBlockName("Pillar").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
-		blockMarblePillarCaps = new BlockAOMPillarCap().setBlockName("PillarCap").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
-		blockMarblePillarBase = new BlockAOMPillarBase().setBlockName("PillarBase").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
-
+		blockMarblePillarCaps = new BlockAOMPillarCap(stoneMat).setBlockName("PillarCap").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
+		blockMarblePillarBase = new BlockAOMPillarBase(stoneMat).setBlockName("PillarBase").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
 		blockBlackMarble = new BlockAOMStone(stoneMat).setBlockName("Block_BlackMarble").setCreativeTab(tabBlocks).setHardness(stone);
 		blockBlackMarbleBrick = new BlockAOMStone(stoneMat).setBlockName("Brick_BlackMarble").setCreativeTab(tabBlocks).setHardness(stone);
 		blockBlackMarbleStairs = new BlockAOMStairs(stoneMat, blockBlackMarble, 0).setBlockName("Stairs_BlackMarble").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
 		blockBlackMarbleBrickStairs = new BlockAOMStairs(stoneMat, blockBlackMarbleBrick, 0).setBlockName("Stairs_BlackMarbleBrick").setCreativeTab(tabBlocks).setHardness(stone).setStepSound(stoneStep);
+		blockTinOre = new BlockAOMStone(stoneMat).setBlockName("Block_TinOre").setCreativeTab(tabBlocks).setHardness(stone);
+		blockCopperOre = new BlockAOMStone(stoneMat).setBlockName("Block_CopperOre").setCreativeTab(tabBlocks).setHardness(stone);
+		blockPlatinumOre = new BlockAOMStoneLevel2(stoneMat).setBlockName("Block_PlatinumOre").setCreativeTab(tabBlocks).setHardness(stone);
 	}
 
 	public static void RegisterBlocks()
@@ -90,6 +101,10 @@ public class AOMBlocks
 		Register(blockBlackMarbleStairs);
 		Register(blockBlackMarbleBrickStairs);
 		
+		RegisterOre(blockTinOre);
+		RegisterOre(blockCopperOre);
+		RegisterOre(blockPlatinumOre);
+		
 		Register(blockMarblePillars, ItemAOMPillar.class);
 		Register(blockMarblePillarCaps, ItemAOMPillarCap.class);
 		Register(blockMarblePillarBase, ItemAOMPillarBase.class);
@@ -103,5 +118,11 @@ public class AOMBlocks
 	private static void Register(Block block, Class<? extends ItemBlock> itemclass)
 	{
 		GameRegistry.registerBlock(block, itemclass, block.getUnlocalizedName().substring(5));
+	}
+	
+	private static void RegisterOre(Block block)
+	{
+		GameRegistry.registerBlock(block, block.getUnlocalizedName().substring(5));
+		OreDictionary.registerOre("ore" + block.getUnlocalizedName().substring(11, block.getUnlocalizedName().length() - 3), block);
 	}
 }

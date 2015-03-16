@@ -1,3 +1,6 @@
+itemGroup.elementalsCore=AoM Core
+itemGroup.elementalsBlocks=AoM Blocks 
+
 tile.Pillar.WhiteMarble.name=Marble Pillar
 tile.Pillar.BlackMarble.name=Burnt Marble Pillar
 
@@ -14,6 +17,16 @@ tile.Block_WhiteMarble.name=Marble
 tile.Block_BlackMarble.name=Burnt Marble
 
 tile.Stairs_WhiteMarble.name=Marble Stairs
-tile.Stairs_BlackMarble.name=Black Marble Stairs
+tile.Stairs_BlackMarble.name=Burnt Marble Stairs
 tile.Stairs_WhiteMarbleBrick.name=Marble Brick Stairs
-tile.Stairs_BlackMarbleBrick.name=Black Marble Brick Stairs
+tile.Stairs_BlackMarbleBrick.name=Burnt Marble Brick Stairs
+
+tile.Block_TinOre.name=Tin Ore
+tile.Block_CopperOre.name=Copper Ore
+tile.Block_PlatinumOre.name=Platinum Ore
+
+item.TinIngot.name=Tin Ingot
+item.CopperIngot.name=Copper Ingot
+item.BronzeIngot.name=Bronze Ingot
+item.PlatinumIngot.name=Platinum Ingot
+item.SteelIngot.name=Steel Ingot
