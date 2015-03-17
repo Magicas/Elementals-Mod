@@ -30,6 +30,7 @@ public class AOMMod
 		AOMCreativeTabs.InitCreativeTabs();
 		AOMBlocks.InitBlocks();
 		AOMItems.InitItems();
+		AOMWorld.InitWorld();
 	}
 
 	@EventHandler
@@ -39,7 +40,6 @@ public class AOMMod
 		
 		AOMBlocks.RegisterBlocks();
 		AOMItems.RegisterItems();
-		AOMWorld.InitWorld();
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
 

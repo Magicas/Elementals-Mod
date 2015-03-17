@@ -1,6 +1,9 @@
 package net.gammas.aom.utils;
 
 import net.gammas.aom.blocks.AOMBlocks;
+import net.gammas.aom.blocks.tileentities.TileEntityForge;
+import net.gammas.aom.container.ContainerForge;
+import net.gammas.aom.gui.GuiForge;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -27,7 +30,7 @@ public class GuiHandler implements IGuiHandler
 			}
 			return null;
 		}
-	}
+		return null;
 	}
 
 	@Override
@@ -48,5 +51,6 @@ public class GuiHandler implements IGuiHandler
 			}
 			return null;
 		}
+		return null;
 	}
 }
