@@ -87,7 +87,8 @@ public class AOMBlocks
 		blockTinOre = new BlockAOMStone(stoneMat).setBlockName("Block_TinOre").setCreativeTab(tabBlocks).setHardness(stone);
 		blockCopperOre = new BlockAOMStone(stoneMat).setBlockName("Block_CopperOre").setCreativeTab(tabBlocks).setHardness(stone);
 		blockPlatinumOre = new BlockAOMStoneLevel2(stoneMat).setBlockName("Block_PlatinumOre").setCreativeTab(tabBlocks).setHardness(stone);
-		blockForgeIdle = new BlockForge(stoneMat, false).setBlockName("Block_PlatinumOre").setCreativeTab(tabBlocks).setHardness(stone);
+		blockForgeIdle = new BlockForge(stoneMat, false).setBlockName("Block_ForgeIdle").setCreativeTab(tabBlocks).setHardness(stone);
+		blockForgeActive = new BlockForge(stoneMat, true).setBlockName("Block_ForgeActive").setHardness(stone);
 	}
 
 	public static void RegisterBlocks()
@@ -109,6 +110,9 @@ public class AOMBlocks
 		Register(blockMarblePillars, ItemAOMPillar.class);
 		Register(blockMarblePillarCaps, ItemAOMPillarCap.class);
 		Register(blockMarblePillarBase, ItemAOMPillarBase.class);
+		
+		Register(blockForgeIdle);
+		Register(blockForgeActive);
 	}
 
 	private static void Register(Block block)

@@ -17,13 +17,34 @@ public class AOMItems
 	public static Item platinumIngot;
 	public static Item steelIngot;
 	
+	public static Item bronzeMetalChunk;
+	public static Item steelMetalChunk;
+	
+	public static Item ingotCast;
+	public static Item pickaxeHeadCast;
+	public static Item axeHeadCast;
+	public static Item shovelHeadCast;
+	public static Item shortSwordBladeCast;
+	public static Item broadSwordBladeCast;
+	public static Item longSwordBladeCast;
+	
 	public static void InitItems()
 	{
-		tinIngot = new ItemAOMIngot().setUnlocalizedName("TinIngot").setTextureName("TinIngot").setCreativeTab(tabMain);
-		copperIngot = new ItemAOMIngot().setUnlocalizedName("CopperIngot").setTextureName("CopperIngot").setCreativeTab(tabMain);
-		bronzeIngot = new ItemAOMIngot().setUnlocalizedName("BronzeIngot").setTextureName("BronzeIngot").setCreativeTab(tabMain);
-		platinumIngot = new ItemAOMIngot().setUnlocalizedName("PlatinumIngot").setTextureName("PlatinumIngot").setCreativeTab(tabMain);
-		steelIngot = new ItemAOMIngot().setUnlocalizedName("SteelIngot").setTextureName("SteelIngot").setCreativeTab(tabMain);
+		tinIngot = new ItemAOMIngot().setUnlocalizedName("TinIngot").setCreativeTab(tabMain);
+		copperIngot = new ItemAOMIngot().setUnlocalizedName("CopperIngot").setCreativeTab(tabMain);
+		bronzeIngot = new ItemAOMIngot().setUnlocalizedName("BronzeIngot").setCreativeTab(tabMain);
+		platinumIngot = new ItemAOMIngot().setUnlocalizedName("PlatinumIngot").setCreativeTab(tabMain);
+		steelIngot = new ItemAOMIngot().setUnlocalizedName("SteelIngot").setCreativeTab(tabMain);
+		
+		bronzeMetalChunk = n
+		
+		ingotCast = new ItemAOMCast().setUnlocalizedName("IngotCast").setCreativeTab(tabMain);
+		pickaxeHeadCast = new ItemAOMCast().setUnlocalizedName("PickaxeHeadCast").setCreativeTab(tabMain);
+		axeHeadCast = new ItemAOMCast().setUnlocalizedName("AxeHeadCast").setCreativeTab(tabMain);
+		shovelHeadCast = new ItemAOMCast().setUnlocalizedName("ShovelHeadCast").setCreativeTab(tabMain);
+		shortSwordBladeCast = new ItemAOMCast().setUnlocalizedName("ShortSwordBladeCast").setCreativeTab(tabMain);
+		broadSwordBladeCast = new ItemAOMCast().setUnlocalizedName("BroadSwordBladeCast").setCreativeTab(tabMain);
+		longSwordBladeCast = new ItemAOMCast().setUnlocalizedName("LongSwordBladeCast").setCreativeTab(tabMain);
 	}
 
 	public static void RegisterItems()
@@ -33,6 +54,13 @@ public class AOMItems
 		RegisterIngot(bronzeIngot);
 		RegisterIngot(platinumIngot);
 		RegisterIngot(steelIngot);
+		Register(ingotCast);
+		Register(pickaxeHeadCast);
+		Register(axeHeadCast);
+		Register(shovelHeadCast);
+		Register(shortSwordBladeCast);
+		Register(broadSwordBladeCast);
+		Register(longSwordBladeCast);
 	}
 
 	private static void Register(Item item)

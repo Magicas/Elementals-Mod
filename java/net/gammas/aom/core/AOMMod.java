@@ -1,7 +1,9 @@
 package net.gammas.aom.core;
 
 import net.gammas.aom.blocks.AOMBlocks;
+import net.gammas.aom.blocks.tileentities.AOMTileEntites;
 import net.gammas.aom.items.AOMItems;
+import net.gammas.aom.utils.AOMCraftingManager;
 import net.gammas.aom.utils.CommonProxy;
 import net.gammas.aom.utils.GuiHandler;
 import net.gammas.aom.utils.References;
@@ -31,6 +33,7 @@ public class AOMMod
 		AOMBlocks.InitBlocks();
 		AOMItems.InitItems();
 		AOMWorld.InitWorld();
+		AOMTileEntites.InitTileEntities();
 	}
 
 	@EventHandler
@@ -40,6 +43,7 @@ public class AOMMod
 		
 		AOMBlocks.RegisterBlocks();
 		AOMItems.RegisterItems();
+		AOMCraftingManager.RegisterRecipes();
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
 

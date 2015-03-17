@@ -29,9 +29,9 @@ public class BlockForge extends BlockContainer
 	private boolean isActive;
 
 	@SideOnly(Side.CLIENT)
-	private IIcon top;
-	@SideOnly(Side.CLIENT)
-	private IIcon bottom;
+	private IIcon front;
+
+	public static boolean keepInventory;
 
 	public BlockForge(Material material, boolean isActive)
 	{
@@ -41,36 +41,25 @@ public class BlockForge extends BlockContainer
 	}
 
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int p_149691_1_, int p_149691_2_)
+	public IIcon getIcon(int side, int meta)
 	{
-		return p_149691_1_ == 1 ? this.top : (p_149691_1_ == 0 ? Blocks.stone.getBlockTextureFromSide(p_149691_1_) : this.blockIcon);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(IBlockAccess p_149673_1_, int p_149673_2_, int p_149673_3_, int p_149673_4_, int p_149673_5_)
-	{
-		if (p_149673_5_ == 1)
-		{
-			return this.top;
-		}
-		else if (p_149673_5_ == 0)
-		{
-			return this.bottom;
-		}
+		if (meta == 2 && side == 2)
+			return front;
+		else if (meta == 3 && side == 5)
+			return front;
+		else if (meta == 0 && side == 3)
+			return front;
+		else if (meta == 1 && side == 4)
+			return front;
 		else
-		{
-			Material material = p_149673_1_.getBlock(p_149673_2_, p_149673_3_ + 1, p_149673_4_).getMaterial();
-			return this.blockIcon;
-		}
+			return blockIcon;
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon("magicasmod:EssenceCombiner_Side");
-		;
-		this.top = iconRegister.registerIcon("magicasmod:" + (this.isActive ? "EssenceCombiner_Top_Active" : "EssenceCombiner_Top_Idle"));
-		this.bottom = iconRegister.registerIcon("magicasmod:EssenceCombiner_Bottom");
+		this.blockIcon = iconRegister.registerIcon("aom:Forge_Side");
+		this.front = iconRegister.registerIcon("aom:" + (this.isActive ? "Forge_Front_Active" : "Forge_Front_Idle"));
 	}
 
 	public void onBlockPlacedBy(World par1World, int x, int y, int z, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
@@ -128,6 +117,24 @@ public class BlockForge extends BlockContainer
 	{
 		if (!world.isRemote)
 		{
+
+			// if (world.getBlock(x, y + 1, z) == Blocks.air)
+			// {
+			// if (world.getBlock(x + 1, y + 1, z) == Blocks.iron_bars)
+			// {
+			// if (world.getBlock(x + 2, y + 1, z) == AOMBlocks.blockBlackMarbleBrick)
+			// {
+			// if (world.getBlock(x - 1, y + 1, z) == Blocks.iron_bars)
+			// {
+			// if (world.getBlock(x - 2, y + 1, z) == AOMBlocks.blockBlackMarbleBrick)
+			// {
+			//
+			// }
+			// }
+			// }
+			// }
+			// }
+
 			if (world.getBlock(x, y - 1, z) == Blocks.lava)
 			{
 				FMLNetworkHandler.openGui(player, AOMMod.instance, AOMBlocks.blockForgeGuiId, world, x, y, z);
@@ -137,27 +144,29 @@ public class BlockForge extends BlockContainer
 		return true;
 	}
 
-	public static void updateBlockState(boolean isExtracting, World worldObj, int xCoord, int yCoord, int zCoord)
-	{
-		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
-		TileEntity entity = worldObj.getTileEntity(xCoord, yCoord, zCoord);
-
-		if (isExtracting)
-		{
-			worldObj.setBlock(xCoord, yCoord, zCoord, AOMBlocks.blockForgeIdle);
-		}
-		else
-		{
-			worldObj.setBlock(xCoord, yCoord, zCoord, AOMBlocks.blockForgeActive);
-		}
-		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
-
-		if (entity != null)
-		{
-			entity.validate();
-			worldObj.setTileEntity(xCoord, yCoord, zCoord, entity);
-		}
-	}
+	// public static void updateBlockState(boolean isExtracting, World worldObj, int xCoord, int yCoord, int zCoord)
+	// {
+	// int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+	// TileEntity entity = worldObj.getTileEntity(xCoord, yCoord, zCoord);
+	// keepInventory = true;
+	//
+	// if (isExtracting)
+	// {
+	// worldObj.setBlock(xCoord, yCoord, zCoord, AOMBlocks.blockForgeActive);
+	// }
+	// else
+	// {
+	// worldObj.setBlock(xCoord, yCoord, zCoord, AOMBlocks.blockForgeIdle);
+	// }
+	// keepInventory = false;
+	// worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, i, 2);
+	//
+	// if (entity != null)
+	// {
+	// entity.validate();
+	// worldObj.setTileEntity(xCoord, yCoord, zCoord, entity);
+	// }
+	// }
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int p_149915_2_)

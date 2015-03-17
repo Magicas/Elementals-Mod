@@ -2,9 +2,11 @@ package net.gammas.aom.blocks.tileentities;
 
 import java.util.Random;
 
+import net.gammas.aom.blocks.BlockForge;
 import net.gammas.aom.recipes.ForgeRecipes;
 import net.gammas.aom.utils.ContainerHelp;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -23,14 +25,11 @@ public class TileEntityForge extends TileEntity implements ISidedInventory
 	public boolean isForging;
 
 	public int cooktime;
-	private static final int secondsToForge = 5;
+	private static final int secondsToForge = 10;
 	public static final int forgingSpeed = 20 * secondsToForge;
-	private static final int[] slots_top = new int[]
-	{ 0 };
-	private static final int[] slots_bottom = new int[]
-	{ 2 };
-	private static final int[] slots_side = new int[]
-	{ 1 };
+	private static final int[] slots_top = new int[] { 0 };
+	private static final int[] slots_bottom = new int[] { 2 };
+	private static final int[] slots_side = new int[] { 1 };
 
 	public TileEntityForge()
 	{
@@ -309,6 +308,8 @@ public class TileEntityForge extends TileEntity implements ISidedInventory
 		{
 			cooktime++;
 			isForging = true;
+
+			// BlockForge.updateBlockState(isForging, worldObj, xCoord, yCoord, zCoord);
 
 			if (this.cooktime == this.forgingSpeed)
 			{
