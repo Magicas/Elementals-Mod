@@ -10,16 +10,16 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class AOMItems
 {
 	public static CreativeTabs tabMain = AOMCreativeTabs.creativeTabElementalsCore;
-	
+
 	public static Item tinIngot;
 	public static Item copperIngot;
 	public static Item bronzeIngot;
 	public static Item platinumIngot;
 	public static Item steelIngot;
-	
+
 	public static Item bronzeMetalChunk;
 	public static Item steelMetalChunk;
-	
+
 	public static Item ingotCast;
 	public static Item pickaxeHeadCast;
 	public static Item axeHeadCast;
@@ -27,7 +27,7 @@ public class AOMItems
 	public static Item shortSwordBladeCast;
 	public static Item broadSwordBladeCast;
 	public static Item longSwordBladeCast;
-	
+
 	public static void InitItems()
 	{
 		tinIngot = new ItemAOMIngot().setUnlocalizedName("TinIngot").setCreativeTab(tabMain);
@@ -35,9 +35,8 @@ public class AOMItems
 		bronzeIngot = new ItemAOMIngot().setUnlocalizedName("BronzeIngot").setCreativeTab(tabMain);
 		platinumIngot = new ItemAOMIngot().setUnlocalizedName("PlatinumIngot").setCreativeTab(tabMain);
 		steelIngot = new ItemAOMIngot().setUnlocalizedName("SteelIngot").setCreativeTab(tabMain);
-		
-		bronzeMetalChunk = n
-		
+		bronzeMetalChunk = new ItemAOMIngot().setUnlocalizedName("BronzeMetalChunk").setCreativeTab(tabMain);
+		steelMetalChunk = new ItemAOMIngot().setUnlocalizedName("SteelMetalChunk").setCreativeTab(tabMain);
 		ingotCast = new ItemAOMCast().setUnlocalizedName("IngotCast").setCreativeTab(tabMain);
 		pickaxeHeadCast = new ItemAOMCast().setUnlocalizedName("PickaxeHeadCast").setCreativeTab(tabMain);
 		axeHeadCast = new ItemAOMCast().setUnlocalizedName("AxeHeadCast").setCreativeTab(tabMain);
@@ -54,6 +53,8 @@ public class AOMItems
 		RegisterIngot(bronzeIngot);
 		RegisterIngot(platinumIngot);
 		RegisterIngot(steelIngot);
+		Register(bronzeMetalChunk);
+		Register(steelMetalChunk);
 		Register(ingotCast);
 		Register(pickaxeHeadCast);
 		Register(axeHeadCast);
@@ -67,7 +68,7 @@ public class AOMItems
 	{
 		GameRegistry.registerItem(item, item.getUnlocalizedName());
 	}
-	
+
 	private static void RegisterIngot(Item item)
 	{
 		GameRegistry.registerItem(item, item.getUnlocalizedName().substring(5));
